@@ -2,8 +2,10 @@
 import * as fs from "fs";
 
 export default function handler(req, res) {
-  fs.readFile("../about.js", (err, data) => {
-    console.log(JSON.stringify(data));
+  fs.readFile("blog-post/blogData.json", (err, data) => {
+    if(err) {
+        res.send(err);
+    }
+    res.status(200).json(data);
   });
-  res.status(200).json({ name: "John Doe" });
 }
