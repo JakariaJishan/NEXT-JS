@@ -9,7 +9,9 @@
   flex-direction: column;
   align-items: center;
 }
-
+.link {
+  background: orange;
+}
 .footer {
   display: flex;
   flex: 1;
