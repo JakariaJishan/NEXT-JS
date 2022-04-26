@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -26,13 +25,13 @@ export default function Home() {
           <p className="demo">code war</p>
         </h1>
         <div>
-          <Image
+          <img
             className="myImg"
             src="/unsplashImage.jpg"
             alt="unsplash image"
             height="426px"
             width="640px"
-          ></Image>
+          ></img>
         </div>
         <p className={styles.description}>a popular blog site</p>
       </main>
