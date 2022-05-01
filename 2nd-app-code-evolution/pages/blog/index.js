@@ -2,9 +2,9 @@ import React from 'react';
 
 const Index = () => {
     return (
-        <div>
+        <h1>
             blog pages
-        </div>
+        </h1>
     );
 };
 
