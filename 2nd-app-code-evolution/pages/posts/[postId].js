@@ -13,14 +13,24 @@ const Post = ({ data }) => {
 };
 
 export async function getStaticPaths() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+  const paths = data.map((elem) => {
+    return {
+      params: { postId: `${elem.id}` },
+    };
+  });
+
   return {
-    paths: [
-      { params: { postId: "1" } },
-      { params: { postId: "2" } },
-      { params: { postId: "3" } },
-      { params: { postId: "4" } },
-      { params: { postId: "5" } },
-    ],
+    // paths: [
+    //   { params: { postId: "1" } },
+    //   { params: { postId: "2" } },
+    //   { params: { postId: "3" } },
+    //   { params: { postId: "4" } },
+    //   { params: { postId: "5" } },
+    // ]
+
+    paths,
     fallback: true, // false or 'blocking'
   };
 }

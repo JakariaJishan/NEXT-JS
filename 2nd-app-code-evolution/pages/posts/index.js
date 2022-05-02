@@ -23,7 +23,7 @@ const Posts = ({ finalData }) => {
 export async function getStaticProps(context) {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
-  const finalData = data.slice(0, 5);
+  const finalData = data;
   return {
     props: { finalData }, // will be passed to the page component as props
   };
