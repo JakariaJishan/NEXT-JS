@@ -6,10 +6,9 @@ export default function handler(req, res) {
   } else if (req.method === "POST") {
     const {comment} = req.body;
     const newComment = {
-      name: comment,
+      id: new Date().getTime(),
       title: comment,
     };
-    console.log(comment);
     commnets.push(newComment);
     res.status(201).json(newComment);
   }
