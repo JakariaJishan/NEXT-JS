@@ -2,5 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
 }
-
-module.exports = nextConfig
+const customConfig = {
+  env: {
+    customKey: 'my-value',
+  },
+}
+module.exports = nextConfig, customConfig
