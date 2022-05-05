@@ -1,10 +1,10 @@
 import React from 'react';
 
 const About = () => {
-    const x = process.env.adf
+    console.log(process.env.NEXT_PUBLIC_X) 
     return (
         <div>
-            this is about {x}
+            this is about 
         </div>
     );
 };
