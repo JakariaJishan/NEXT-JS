@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
-const customConfig = {
   env: {
-    customKey: 'my-value',
+    BASE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
-}
-module.exports = nextConfig, customConfig
+};
+module.exports = nextConfig
