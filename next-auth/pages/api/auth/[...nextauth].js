@@ -1,20 +1,16 @@
-import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import NextAuth from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
+import clientPromise from "./lib/mongodb";
 
+// For more information on each option (and a full list of options) go to
+// https://next-auth.js.org/configuration/options
 export default NextAuth({
-  // Configure one or more authentication providers
+  adapter: MongoDBAdapter(clientPromise),
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
-  ],
-  database: process.env.MONGODB_URL,
-  session: {
-    jwt: true,
-  },
-  jwt:{
-    secret: process.env.JWT_SECRET
-  }
-
-})
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    })
+  ]
+});
