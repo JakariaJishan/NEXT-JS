@@ -8,6 +8,13 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    // ...add more providers here
   ],
+  database: process.env.MONGODB_URL,
+  session: {
+    jwt: true,
+  },
+  jwt:{
+    secret: process.env.JWT_SECRET
+  }
+
 })
