@@ -17,6 +17,7 @@ const Navbar = () => {
       <Link href={"/"}>Home</Link>
       <Link href={"/about"}>about</Link>
       <Link href={"/dashboard"}>dashboard</Link>
+      <Link href={"/blog"}>Blog</Link>
       <br />
       {session===null && status==='unauthenticated' ? (
         <Link href={"/api/auth/signin"}>
