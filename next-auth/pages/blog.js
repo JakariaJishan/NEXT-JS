@@ -12,6 +12,14 @@ const Blog = ({data}) => {
 export async function getServerSideProps(context) {
     // console.log(context)
     const session = await getSession(context);
+    if(!session) {
+        return {
+            redirect:{
+                destination: `/api/auth/signin?callbackUrl=http://localhost:3000/blog`,
+                permanent: false
+            }
+        }
+    }
     return {
       props: {data: session? '100 blogs' : 'free blogs'}, // will be passed to the page component as props
     }
