@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Post from "../components/Post";
 import styles from "../styles/Home.module.css";
 const fs = require("fs");
 const path = require("path");
@@ -12,10 +13,7 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {posts.map((item, index) => (
-        <div key={item.slug}>
-          <h1>{item.data.title}</h1>
-          <small>{item.data.body}</small>
-        </div>
+        <Post key={index} item={item} />
       ))}
     </div>
   );
