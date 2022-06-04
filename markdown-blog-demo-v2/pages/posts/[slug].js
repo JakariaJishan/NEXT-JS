@@ -9,16 +9,13 @@ export default Slug;
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("posts"));
-  const file = files.map((filename) =>{
-      return {
-          params:{
-              slug: filename.replace(".md", "")
-          }
-      }
-  });
-  
+  const file = files.map((filename) =>({ 
+     params: { 
+         slug: filename.replace(".md", "")
+     }
+  }));
   return {
-    file,
+    paths: file,
     fallback: false
   };
 }
