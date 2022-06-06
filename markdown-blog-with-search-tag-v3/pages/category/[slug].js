@@ -10,7 +10,8 @@ export default Category;
 
 export async function getStaticPaths() {
   const files = fs.readdirSync(path.join("posts"));
-  const paths = files.map((filename) => {
+  const tempdata = [];
+  const tempPaths = files.map((filename) => {
     const markdownWithMeta = fs.readFileSync(
       path.join("posts", filename),
       "utf-8"
@@ -19,19 +20,20 @@ export async function getStaticPaths() {
       data: { categories },
     } = matter(markdownWithMeta);
 
-    const temp = categories.map((category) => {
-      return {
-        params: {
-          slug: category,
-        },
-      };
+    categories.map((category) => {
+      tempdata.push({ params: { slug: category } });
     });
-    return temp
   });
 
-  console.log(paths)
   return {
-    paths,
+    paths: tempdata,
     fallback: false,
   };
+}
+
+export async function getStaticProps({params:{slug}}) {
+    
+    return {
+
+    }
 }
